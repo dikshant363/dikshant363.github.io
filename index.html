@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dikshant Agarwal | AI & Systems Engineer</title>
+  <meta name="description" content="AI & ML Systems Engineer specializing in autonomous agent runtimes, local-first Apple Silicon MLX applications, and high-performance developer tooling." />
+  <meta name="author" content="Dikshant Agarwal" />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://crumblecourt.me/" />
+  <meta property="og:title" content="Dikshant Agarwal | AI & Systems Engineer" />
+  <meta property="og:description" content="Building autonomous engineering runtimes, local-first Apple Silicon AI workstations, and developer tools." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#00ADB5',
+              tealGlow: '#00ADB533',
+              dark: '#080C14',
+              surface: '#0F172A',
+              card: '#111827',
+              border: 'rgba(255, 255, 255, 0.08)',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #080C14;
+      color: #E2E8F0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .glow-teal {
+      box-shadow: 0 0 40px -10px rgba(0, 173, 181, 0.25);
+    }
+    .terminal-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .terminal-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-dark min-h-screen selection:bg-brand-teal selection:text-black">
+  <!-- Subtle Ambient Glows -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-brand-teal/10 blur-[130px] rounded-full pointer-events-none -z-10"></div>
+  <div class="fixed bottom-0 right-0 w-[500px] h-[300px] bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+
+  <!-- Background Grid -->
+  <div class="fixed inset-0 bg-grid pointer-events-none -z-10"></div>
+
+  <!-- Floating Navigation -->
+  <nav class="fixed top-4 inset-x-0 max-w-5xl mx-auto px-4 z-50">
+    <div class="backdrop-blur-xl bg-slate-900/70 border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-2xl">
+      <a href="#" class="flex items-center gap-2 font-mono font-bold text-sm tracking-wide text-white group">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-teal animate-pulse"></span>
+        <span class="group-hover:text-brand-teal transition-colors">dikshant.dev</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium">
+        <a href="#projects" class="hover:text-brand-teal transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-brand-teal transition-colors">Ecosystem</a>
+        <a href="#terminal" class="hover:text-brand-teal transition-colors">Terminal</a>
+        <a href="#metrics" class="hover:text-brand-teal transition-colors">Stats</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="copyEmail()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-brand-teal/10 border border-brand-teal/30 text-brand-teal hover:bg-brand-teal hover:text-black transition-all">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          <span>Contact</span>
+        </button>
+        <a href="https://github.com/dikshant363" target="_blank" rel="noreferrer" class="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/5 transition-colors">
+          <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="pt-36 pb-20 px-6 max-w-5xl mx-auto text-center relative">
+    <!-- Live Status Pill -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-8">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+      <span>Available for AI Systems & Autonomous Workflows</span>
+    </div>
+
+    <!-- Main Title -->
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
+      Building <span class="bg-gradient-to-r from-brand-teal via-cyan-300 to-indigo-400 bg-clip-text text-transparent">Intelligent Systems</span><br class="hidden sm:block"/>
+      & Autonomous Runtimes.
+    </h1>
+
+    <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-10">
+      I'm <strong class="text-white font-semibold">Dikshant Agarwal</strong> — an AI & ML engineer crafting local-first Apple Silicon workloads, deterministic agent runtimes, and developer tools that ship real code.
+    </p>
+
+    <!-- Quick CTAs -->
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="#projects" class="px-6 py-3 rounded-xl bg-brand-teal text-black font-semibold text-sm hover:opacity-90 shadow-lg shadow-brand-teal/20 transition-all flex items-center gap-2">
+        <span>Explore Flagship Projects</span>
+        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+      </a>
+      <a href="#terminal" class="px-6 py-3 rounded-xl bg-slate-900 border border-white/10 text-white font-mono text-sm hover:border-brand-teal/50 hover:bg-slate-800 transition-all flex items-center gap-2">
+        <i data-lucide="terminal" class="w-4 h-4 text-brand-teal"></i>
+        <span>Launch CLI Terminal</span>
+      </a>
+    </div>
+
+    <!-- Quick Meta Metrics -->
+    <div class="mt-16 pt-8 border-t border-white/5 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
+      <div class="p-4 rounded-xl bg-slate-900/40 border border-white/5">
+        <div class="text-xs font-mono text-slate-400 mb-1">Focus Area</div>
+        <div class="text-sm font-semibold text-white">Autonomous Agents & MLX</div>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/40 border border-white/5">
+        <div class="text-xs font-mono text-slate-400 mb-1">Architecture</div>
+        <div class="text-sm font-semibold text-white">Local-First & Edge AI</div>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/40 border border-white/5">
+        <div class="text-xs font-mono text-slate-400 mb-1">Public Repos</div>
+        <div id="stat-repos" class="text-sm font-semibold text-brand-teal font-mono">40+</div>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/40 border border-white/5">
+        <div class="text-xs font-mono text-slate-400 mb-1">Ecosystem</div>
+        <div class="text-sm font-semibold text-white">Apple Silicon / TS / Py</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bento Grid Project Showcase -->
+  <section id="projects" class="py-20 px-6 max-w-5xl mx-auto">
+    <div class="flex items-center justify-between mb-12">
+      <div>
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-teal mb-2">Portfolio Showcase</h2>
+        <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Featured Engineering Work</h3>
+      </div>
+      <a href="https://github.com/dikshant363?tab=repositories" target="_blank" rel="noreferrer" class="hidden sm:flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white transition-colors">
+        <span>View all 40+ repositories</span>
+        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+
+    <!-- Bento Grid Container -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1: anime-dub-studio (Large Highlight Card) -->
+      <div class="md:col-span-2 rounded-2xl bg-slate-900/70 border border-brand-teal/30 p-7 hover:border-brand-teal transition-all glow-teal flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-brand-teal/10 text-brand-teal border border-brand-teal/30">
+              <i data-lucide="sparkles" class="w-3 h-3"></i> Apple Silicon MLX Workstation
+            </span>
+            <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+          <h4 class="text-2xl font-bold text-white mb-3 group-hover:text-brand-teal transition-colors">anime-dub-studio</h4>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            Native macOS desktop workstation for local-first anime dubbing into Hindi & Hinglish. Harnesses Apple Silicon unified memory with MLX Whisper and Apple Intelligence for zero-cloud latency, privacy-preserved audio pipelines, and synchronous sub-title alignment.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/10">
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Python</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Apple MLX</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Whisper</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">macOS Native</span>
+          </div>
+          <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-xs font-mono text-brand-teal font-medium hover:underline inline-flex items-center gap-1">
+            <span>Inspect Source</span> &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: attest (Autonomous Engineering Runtime) -->
+      <div class="rounded-2xl bg-slate-900/60 border border-white/10 p-7 hover:border-indigo-400/50 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              <i data-lucide="shield-check" class="w-3 h-3"></i> Agentic Runtime
+            </span>
+            <a href="https://github.com/dikshant363/attest" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">attest</h4>
+          <p class="text-slate-300 text-xs leading-relaxed mb-6">
+            An autonomous engineering runtime that will not say "done" without verifiable proof: persistent world state, checkpointed execution, enforced rollback, and evidence-backed verdicts.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-mono pt-4 border-t border-white/5">
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">TypeScript</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">DevTools</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Deterministic AI</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Grandpa's Table -->
+      <div class="rounded-2xl bg-slate-900/60 border border-white/10 p-7 hover:border-amber-400/50 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <i data-lucide="mic" class="w-3 h-3"></i> Voice AI Archive
+            </span>
+            <a href="https://github.com/dikshant363/Grandpa-s-Table" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Grandpa's Table</h4>
+          <p class="text-slate-300 text-xs leading-relaxed mb-6">
+            Voice-to-Heirloom recipe archive and conversational memory vault preserving family culinary heritage through natural spoken dialogue and AI structuring.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-mono pt-4 border-t border-white/5">
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">TypeScript</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Next.js</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Voice AI</span>
+        </div>
+      </div>
+
+      <!-- Card 4: projectmentor-ai (Hackathon Project) -->
+      <div class="rounded-2xl bg-slate-900/60 border border-white/10 p-7 hover:border-emerald-400/50 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <i data-lucide="award" class="w-3 h-3"></i> Hackathon Project
+            </span>
+            <a href="https://github.com/dikshant363/projectmentor-ai" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">projectmentor-ai</h4>
+          <p class="text-slate-300 text-xs leading-relaxed mb-6">
+            AI Project Idea Generator & Engineering Mentor for Final-Year Students. Built and showcased for PromptWars x Parul University Hackathon.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-mono pt-4 border-t border-white/5">
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Next.js</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Gemini API</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Tailwind</span>
+        </div>
+      </div>
+
+      <!-- Card 5: video-dub (Autonomous Pipeline) -->
+      <div class="rounded-2xl bg-slate-900/60 border border-white/10 p-7 hover:border-purple-400/50 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">
+              <i data-lucide="video" class="w-3 h-3"></i> Multimodal AI
+            </span>
+            <a href="https://github.com/dikshant363/video-dub" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">video-dub</h4>
+          <p class="text-slate-300 text-xs leading-relaxed mb-6">
+            End-to-end autonomous video dubbing pipeline: automated transcription, cross-lingual translation, zero-shot voice cloning, and wav2lip synchronization.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-mono pt-4 border-t border-white/5">
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Python</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">PyTorch</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">FFmpeg</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Terminal Section -->
+  <section id="terminal" class="py-16 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-8">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-brand-teal mb-2">Developer Experience</h2>
+      <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Interactive CLI Shell</h3>
+      <p class="text-slate-400 text-sm mt-2">Type commands below or click quick shortcuts.</p>
+    </div>
+
+    <!-- Terminal Window -->
+    <div class="rounded-2xl bg-[#0B0F19] border border-white/10 shadow-2xl overflow-hidden max-w-3xl mx-auto">
+      <!-- Terminal Title Bar -->
+      <div class="bg-slate-900/80 px-4 py-3 border-b border-white/5 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+        </div>
+        <span class="text-xs font-mono text-slate-400">dikshant@macbook-pro:~</span>
+        <div class="text-xs font-mono text-slate-500">zsh</div>
+      </div>
+
+      <!-- Quick Command Buttons -->
+      <div class="bg-slate-950/40 px-4 py-2 border-b border-white/5 flex flex-wrap gap-2 text-xs font-mono">
+        <span class="text-slate-500 py-0.5">Presets:</span>
+        <button onclick="runCommand('whoami')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:text-brand-teal transition-colors">whoami</button>
+        <button onclick="runCommand('projects')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:text-brand-teal transition-colors">projects</button>
+        <button onclick="runCommand('skills')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:text-brand-teal transition-colors">skills</button>
+        <button onclick="runCommand('contact')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:text-brand-teal transition-colors">contact</button>
+        <button onclick="runCommand('clear')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 hover:text-rose-400 transition-colors">clear</button>
+      </div>
+
+      <!-- Terminal Output Body -->
+      <div id="terminal-body" class="p-5 font-mono text-xs sm:text-sm text-slate-300 h-72 overflow-y-auto terminal-scroll space-y-2">
+        <div class="text-slate-400">Welcome to Dikshant's workstation terminal. Type <span class="text-brand-teal">help</span> to list commands.</div>
+      </div>
+
+      <!-- Terminal Input Line -->
+      <div class="bg-slate-950 px-4 py-3 border-t border-white/5 flex items-center gap-2 font-mono text-xs sm:text-sm">
+        <span class="text-brand-teal">dikshant@macbook %</span>
+        <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" class="flex-1 bg-transparent text-white focus:outline-none" placeholder="type a command..." onkeydown="handleTerminalKey(event)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Ecosystem Section -->
+  <section id="skills" class="py-16 px-6 max-w-5xl mx-auto">
+    <div class="mb-12 text-center">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-brand-teal mb-2">Technical Toolkit</h2>
+      <h3 class="text-3xl font-bold text-white tracking-tight">Languages, Frameworks & Systems</h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Group 1: AI, ML & Speech -->
+      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/5">
+        <div class="flex items-center gap-2 text-brand-teal font-mono text-sm font-semibold mb-4">
+          <i data-lucide="cpu" class="w-4 h-4"></i>
+          <span>AI, Machine Learning & Local Workloads</span>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-mono">
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Apple Silicon MLX</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">OpenAI Whisper</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Google Gemini API</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">PyTorch</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Voice Cloning</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Agent Runtimes</span>
+        </div>
+      </div>
+
+      <!-- Group 2: Languages -->
+      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/5">
+        <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm font-semibold mb-4">
+          <i data-lucide="code" class="w-4 h-4"></i>
+          <span>Core Languages</span>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-mono">
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">TypeScript</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Python</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">JavaScript</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Java</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Kotlin</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Bash / Shell</span>
+        </div>
+      </div>
+
+      <!-- Group 3: Web & Full-Stack -->
+      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/5">
+        <div class="flex items-center gap-2 text-cyan-400 font-mono text-sm font-semibold mb-4">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>Full-Stack & Web Systems</span>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-mono">
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Next.js</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">React</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Node.js</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">FastAPI</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Tailwind CSS</span>
+        </div>
+      </div>
+
+      <!-- Group 4: Data & Infrastructure -->
+      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/5">
+        <div class="flex items-center gap-2 text-emerald-400 font-mono text-sm font-semibold mb-4">
+          <i data-lucide="database" class="w-4 h-4"></i>
+          <span>Data, Cloud & Tooling</span>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-mono">
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">PostgreSQL</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">MongoDB</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Docker</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Git & GitHub Actions</span>
+          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Linux / macOS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-Time Metrics & Activity Section -->
+  <section id="metrics" class="py-16 px-6 max-w-5xl mx-auto border-t border-white/5">
+    <div class="text-center mb-10">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-brand-teal mb-2">Live Telemetry</h2>
+      <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">GitHub Momentum</h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-6 rounded-2xl bg-slate-900/50 border border-white/5 flex flex-col items-center justify-center">
+        <img src="https://github-readme-stats.vercel.app/api?username=dikshant363&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="Dikshant's GitHub Stats" class="max-w-full rounded-xl" />
+      </div>
+      <div class="p-6 rounded-2xl bg-slate-900/50 border border-white/5 flex flex-col items-center justify-center">
+        <img src="https://github-readme-streak-stats.herokuapp.com/?user=dikshant363&theme=tokyonight&hide_border=true" alt="Streak Stats" class="max-w-full rounded-xl" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Footer -->
+  <footer class="pt-20 pb-16 px-6 max-w-5xl mx-auto border-t border-white/10 text-center">
+    <h3 class="text-3xl font-bold text-white mb-4">Let's build something remarkable.</h3>
+    <p class="text-slate-400 text-sm max-w-lg mx-auto mb-8">
+      Open for collaborations on agentic systems, Apple Silicon ML engineering, and intelligent developer platforms.
+    </p>
+
+    <div class="inline-flex flex-wrap items-center justify-center gap-4 mb-12">
+      <button onclick="copyEmail()" class="px-5 py-2.5 rounded-xl bg-brand-teal text-black font-semibold text-sm hover:opacity-90 transition-all flex items-center gap-2">
+        <i data-lucide="copy" class="w-4 h-4"></i>
+        <span>Copy Email to Clipboard</span>
+      </button>
+      <a href="https://github.com/dikshant363" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-sm hover:border-brand-teal transition-all flex items-center gap-2">
+        <i data-lucide="github" class="w-4 h-4"></i>
+        <span>github.com/dikshant363</span>
+      </a>
+    </div>
+
+    <div class="text-xs font-mono text-slate-500">
+      &copy; <span id="current-year"></span> Dikshant Agarwal • Hosted on <a href="https://crumblecourt.me" class="text-slate-400 hover:text-brand-teal">crumblecourt.me</a>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 px-4 py-2.5 rounded-xl bg-slate-900 border border-brand-teal/50 text-white font-mono text-xs shadow-2xl flex items-center gap-2 transition-all opacity-0 pointer-events-none translate-y-2 z-50">
+    <i data-lucide="check" class="w-4 h-4 text-brand-teal"></i>
+    <span id="toast-message">Email copied to clipboard!</span>
+  </div>
+
+  <!-- Client JavaScript -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Copy Email Helper
+    function copyEmail() {
+      const email = '71075012+dikshant363@users.noreply.github.com';
+      navigator.clipboard.writeText(email).then(() => {
+        showToast('Copied email to clipboard!');
+      }).catch(() => {
+        showToast('dikshant363 (via GitHub)');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+      }, 3000);
+    }
+
+    // Hydrate GitHub Live Stats
+    async function hydrateGitHubStats() {
+      try {
+        const res = await fetch('https://api.github.com/users/dikshant363');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.public_repos) {
+            document.getElementById('stat-repos').textContent = data.public_repos + '+';
+          }
+        }
+      } catch (e) {
+        // Fallback already in place
+      }
+    }
+    hydrateGitHubStats();
+
+    // Interactive Terminal Implementation
+    const terminalBody = document.getElementById('terminal-body');
+    const terminalInput = document.getElementById('terminal-input');
+
+    const commands = {
+      help: () => `Available commands:\n  <span class="text-brand-teal">whoami</span>    - About Dikshant Agarwal\n  <span class="text-brand-teal">projects</span>  - Top flagship open-source repositories\n  <span class="text-brand-teal">skills</span>    - Technical stack & capabilities\n  <span class="text-brand-teal">contact</span>   - Email and social connections\n  <span class="text-brand-teal">clear</span>     - Clear terminal buffer`,
+      whoami: () => `Dikshant Agarwal\nRole: AI & Systems Engineer\nFocus: Local-First MLX on Apple Silicon, Autonomous Runtimes, Full-Stack DevTools\nPhilosophy: Learn by building, experimenting, and shipping real software.\nLocation: India • Global`,
+      projects: () => `Flagship Repositories:\n  1. <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-brand-teal underline">anime-dub-studio</a> - macOS Apple Silicon MLX Whisper Dubbing Workstation\n  2. <a href="https://github.com/dikshant363/attest" target="_blank" class="text-brand-teal underline">attest</a>           - Autonomous engineering runtime with checkpointed verdicts\n  3. <a href="https://github.com/dikshant363/Grandpa-s-Table" target="_blank" class="text-brand-teal underline">Grandpa-s-Table</a>  - Voice-to-Heirloom Recipe Archive\n  4. <a href="https://github.com/dikshant363/projectmentor-ai" target="_blank" class="text-brand-teal underline">projectmentor-ai</a> - AI Hackathon Final-Year Project Mentor\n  5. <a href="https://github.com/dikshant363/video-dub" target="_blank" class="text-brand-teal underline">video-dub</a>        - Autonomous AI Video Dubbing Platform`,
+      skills: () => `Toolkit:\n  AI & ML     : Apple Silicon MLX, Whisper, PyTorch, Gemini API, Voice AI\n  Languages   : TypeScript, Python, JavaScript, Java, Kotlin\n  Web & Back  : Next.js, React, Node.js, FastAPI, Tailwind CSS\n  Cloud & Ops : Docker, PostgreSQL, MongoDB, Git, Linux, Vercel`,
+      contact: () => `Connect with Dikshant:\n  GitHub  : <a href="https://github.com/dikshant363" target="_blank" class="text-brand-teal underline">github.com/dikshant363</a>\n  Domain  : <a href="https://crumblecourt.me" target="_blank" class="text-brand-teal underline">crumblecourt.me</a>\n  Email   : 71075012+dikshant363@users.noreply.github.com`,
+      clear: () => {
+        terminalBody.innerHTML = '';
+        return null;
+      }
+    };
+
+    function runCommand(cmdText) {
+      const cleanCmd = cmdText.trim().toLowerCase();
+      const line = document.createElement('div');
+      line.innerHTML = `<span class="text-brand-teal">dikshant@macbook %</span> ${cmdText}`;
+      terminalBody.appendChild(line);
+
+      if (commands[cleanCmd]) {
+        const output = commands[cleanCmd]();
+        if (output !== null) {
+          const resDiv = document.createElement('div');
+          resDiv.className = 'text-slate-300 whitespace-pre-wrap pl-2 border-l border-brand-teal/30 my-1';
+          resDiv.innerHTML = output;
+          terminalBody.appendChild(resDiv);
+        }
+      } else {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'text-rose-400 pl-2';
+        errorDiv.textContent = `zsh: command not found: ${cmdText}. Type 'help' for available commands.`;
+        terminalBody.appendChild(errorDiv);
+      }
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+      terminalInput.value = '';
+    }
+
+    function handleTerminalKey(e) {
+      if (e.key === 'Enter') {
+        const cmd = terminalInput.value;
+        if (cmd.trim()) runCommand(cmd);
+      }
+    }
+  </script>
+</body>
+</html>
