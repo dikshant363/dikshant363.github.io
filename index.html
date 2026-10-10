@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dikshant Agarwal | AI & Systems Engineer</title>
-  <meta name="description" content="AI & ML Systems Engineer specializing in autonomous agent runtimes, local-first Apple Silicon MLX applications, and high-performance developer tooling." />
+  <meta name="description" content="AI & Systems Engineer building autonomous agent runtimes, local-first Apple Silicon MLX workstations, and high-performance developer tooling." />
   <meta name="author" content="Dikshant Agarwal" />
   
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://crumblecourt.me/" />
   <meta property="og:title" content="Dikshant Agarwal | AI & Systems Engineer" />
-  <meta property="og:description" content="Building autonomous engineering runtimes, local-first Apple Silicon AI workstations, and developer tools." />
+  <meta property="og:description" content="Building autonomous engineering runtimes, local-first Apple Silicon MLX workstations, and developer platforms." />
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS with Apple Human Interface Guidelines Color System -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,447 +21,495 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              teal: '#00ADB5',
-              tealGlow: '#00ADB533',
-              dark: '#080C14',
-              surface: '#0F172A',
-              card: '#111827',
-              border: 'rgba(255, 255, 255, 0.08)',
+            apple: {
+              // System Backgrounds (macOS / iOS Dark Mode HIG)
+              bg: '#000000',
+              secondaryBg: '#1C1C1E',
+              tertiaryBg: '#2C2C2E',
+              card: 'rgba(28, 28, 30, 0.72)',
+              cardHover: 'rgba(44, 44, 46, 0.85)',
+              elevated: '#1E1E1E',
+              // Apple HIG System Colors (Dark Mode Spec)
+              blue: '#0A84FF',
+              blueMuted: 'rgba(10, 132, 255, 0.15)',
+              cyan: '#64D2FF',
+              cyanMuted: 'rgba(100, 210, 255, 0.15)',
+              mint: '#63E6E2',
+              mintMuted: 'rgba(99, 230, 226, 0.15)',
+              teal: '#40C8E0',
+              tealMuted: 'rgba(64, 200, 224, 0.15)',
+              green: '#30D158',
+              greenMuted: 'rgba(48, 209, 88, 0.15)',
+              indigo: '#5E5CE6',
+              indigoMuted: 'rgba(94, 92, 230, 0.15)',
+              purple: '#BF5AF2',
+              purpleMuted: 'rgba(191, 90, 242, 0.15)',
+              pink: '#FF375F',
+              pinkMuted: 'rgba(255, 55, 95, 0.15)',
+              red: '#FF453A',
+              orange: '#FF9F0A',
+              orangeMuted: 'rgba(255, 159, 10, 0.15)',
+              yellow: '#FFD60A',
+              // Apple HIG System Grayscale (Dark Mode Spec)
+              gray: '#8E8E93',
+              gray2: '#636366',
+              gray3: '#48484A',
+              gray4: '#3A3A3C',
+              gray5: '#2C2C2E',
+              gray6: '#1C1C1E',
+              // Apple HIG Dynamic Labels & Separators
+              label: '#FFFFFF',
+              secondaryLabel: 'rgba(235, 235, 245, 0.65)',
+              tertiaryLabel: 'rgba(235, 235, 245, 0.35)',
+              quaternaryLabel: 'rgba(235, 235, 245, 0.18)',
+              separator: 'rgba(84, 84, 88, 0.35)',
+              borderSubtle: 'rgba(255, 255, 255, 0.10)',
             }
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-            mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', 'system-ui', 'sans-serif'],
+            mono: ['"SF Mono"', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Fira Code"', 'monospace'],
           }
         }
       }
     }
   </script>
 
-  <!-- Google Fonts & Lucide Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     body {
-      background-color: #080C14;
-      color: #E2E8F0;
-      font-family: 'Inter', sans-serif;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
       overflow-x: hidden;
+      letter-spacing: -0.015em;
     }
-    .bg-grid {
-      background-size: 40px 40px;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    .apple-glass {
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      background-color: rgba(28, 28, 30, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.10);
     }
-    .glow-teal {
-      box-shadow: 0 0 40px -10px rgba(0, 173, 181, 0.25);
+    .apple-glass-nav {
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      background-color: rgba(20, 20, 22, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .apple-gradient-blue {
+      background: linear-gradient(135deg, #0A84FF 0%, #64D2FF 100%);
+    }
+    .apple-gradient-indigo {
+      background: linear-gradient(135deg, #5E5CE6 0%, #BF5AF2 100%);
+    }
+    .apple-gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 30%, rgba(235, 235, 245, 0.6) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-gradient-accent-text {
+      background: linear-gradient(135deg, #64D2FF 0%, #0A84FF 50%, #5E5CE6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .terminal-scroll::-webkit-scrollbar {
       width: 6px;
     }
     .terminal-scroll::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.18);
       border-radius: 4px;
     }
   </style>
 </head>
 
-<body class="bg-brand-dark min-h-screen selection:bg-brand-teal selection:text-black">
-  <!-- Subtle Ambient Glows -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-brand-teal/10 blur-[130px] rounded-full pointer-events-none -z-10"></div>
-  <div class="fixed bottom-0 right-0 w-[500px] h-[300px] bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+<body class="bg-apple-bg text-apple-label min-h-screen selection:bg-apple-blue selection:text-white">
+  <!-- Subtle macOS Ambient Glows -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[750px] h-[340px] bg-apple-blue/10 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+  <div class="fixed top-[45%] right-[-10%] w-[500px] h-[320px] bg-apple-indigo/10 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+  <div class="fixed bottom-0 left-[-5%] w-[450px] h-[300px] bg-apple-cyan/8 blur-[130px] rounded-full pointer-events-none -z-10"></div>
 
-  <!-- Background Grid -->
-  <div class="fixed inset-0 bg-grid pointer-events-none -z-10"></div>
-
-  <!-- Floating Navigation -->
-  <nav class="fixed top-4 inset-x-0 max-w-5xl mx-auto px-4 z-50">
-    <div class="backdrop-blur-xl bg-slate-900/70 border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-2xl">
-      <a href="#" class="flex items-center gap-2 font-mono font-bold text-sm tracking-wide text-white group">
-        <span class="w-2.5 h-2.5 rounded-full bg-brand-teal animate-pulse"></span>
-        <span class="group-hover:text-brand-teal transition-colors">dikshant.dev</span>
+  <!-- Floating macOS Navigation -->
+  <nav class="fixed top-5 inset-x-0 max-w-4xl mx-auto px-4 z-50">
+    <div class="apple-glass-nav rounded-full px-5 py-2.5 flex items-center justify-between shadow-2xl">
+      <a href="#" class="flex items-center gap-2 font-mono font-medium text-xs tracking-tight text-white group">
+        <span class="w-2.5 h-2.5 rounded-full bg-apple-blue shadow-[0_0_8px_#0A84FF]"></span>
+        <span class="group-hover:text-apple-blue transition-colors">dikshant.dev</span>
       </a>
 
-      <div class="hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium">
-        <a href="#projects" class="hover:text-brand-teal transition-colors">Projects</a>
-        <a href="#skills" class="hover:text-brand-teal transition-colors">Ecosystem</a>
-        <a href="#terminal" class="hover:text-brand-teal transition-colors">Terminal</a>
-        <a href="#metrics" class="hover:text-brand-teal transition-colors">Stats</a>
+      <div class="hidden md:flex items-center gap-7 text-xs text-apple-secondaryLabel font-medium">
+        <a href="#projects" class="hover:text-apple-label transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-apple-label transition-colors">Ecosystem</a>
+        <a href="#terminal" class="hover:text-apple-label transition-colors">Terminal</a>
+        <a href="#metrics" class="hover:text-apple-label transition-colors">Activity</a>
       </div>
 
       <div class="flex items-center gap-3">
-        <button onclick="copyEmail()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-brand-teal/10 border border-brand-teal/30 text-brand-teal hover:bg-brand-teal hover:text-black transition-all">
+        <button onclick="copyEmail()" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-apple-blueMuted text-apple-blue border border-apple-blue/30 hover:bg-apple-blue hover:text-white transition-all">
           <i data-lucide="mail" class="w-3.5 h-3.5"></i>
           <span>Contact</span>
         </button>
-        <a href="https://github.com/dikshant363" target="_blank" rel="noreferrer" class="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/5 transition-colors">
+        <a href="https://github.com/dikshant363" target="_blank" rel="noreferrer" class="p-1.5 rounded-full text-apple-secondaryLabel hover:text-white hover:bg-white/10 transition-colors">
           <i data-lucide="github" class="w-4 h-4"></i>
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="pt-36 pb-20 px-6 max-w-5xl mx-auto text-center relative">
-    <!-- Live Status Pill -->
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-8">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-      <span>Available for AI Systems & Autonomous Workflows</span>
+  <!-- Hero Header -->
+  <header class="pt-40 pb-20 px-6 max-w-4xl mx-auto text-center relative">
+    <!-- Apple HIG Status Pill -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-apple-greenMuted border border-apple-green/30 text-apple-green text-xs font-mono mb-8">
+      <span class="w-2 h-2 rounded-full bg-apple-green animate-pulse"></span>
+      <span>Available for Autonomous AI & Systems Engineering</span>
     </div>
 
     <!-- Main Title -->
-    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
-      Building <span class="bg-gradient-to-r from-brand-teal via-cyan-300 to-indigo-400 bg-clip-text text-transparent">Intelligent Systems</span><br class="hidden sm:block"/>
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+      Building <span class="apple-gradient-accent-text">Intelligent Systems</span><br class="hidden sm:block"/>
       & Autonomous Runtimes.
     </h1>
 
-    <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-10">
-      I'm <strong class="text-white font-semibold">Dikshant Agarwal</strong> — an AI & ML engineer crafting local-first Apple Silicon workloads, deterministic agent runtimes, and developer tools that ship real code.
+    <p class="max-w-2xl mx-auto text-base sm:text-lg text-apple-secondaryLabel leading-relaxed mb-10">
+      I'm <strong class="text-white font-medium">Dikshant Agarwal</strong> — an AI & ML engineer architecting local-first Apple Silicon workloads with MLX, deterministic agent execution runtimes, and developer tooling.
     </p>
 
-    <!-- Quick CTAs -->
-    <div class="flex flex-wrap items-center justify-center gap-4">
-      <a href="#projects" class="px-6 py-3 rounded-xl bg-brand-teal text-black font-semibold text-sm hover:opacity-90 shadow-lg shadow-brand-teal/20 transition-all flex items-center gap-2">
-        <span>Explore Flagship Projects</span>
-        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+    <!-- Apple HIG Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-3.5">
+      <a href="#projects" class="px-5 py-2.5 rounded-xl bg-apple-blue text-white font-semibold text-xs tracking-tight hover:bg-apple-blue/90 shadow-[0_4px_16px_rgba(10,132,255,0.35)] transition-all flex items-center gap-2">
+        <span>Explore Featured Projects</span>
+        <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
       </a>
-      <a href="#terminal" class="px-6 py-3 rounded-xl bg-slate-900 border border-white/10 text-white font-mono text-sm hover:border-brand-teal/50 hover:bg-slate-800 transition-all flex items-center gap-2">
-        <i data-lucide="terminal" class="w-4 h-4 text-brand-teal"></i>
-        <span>Launch CLI Terminal</span>
+      <a href="#terminal" class="px-5 py-2.5 rounded-xl bg-apple-secondaryBg border border-apple-borderSubtle text-white font-mono text-xs hover:border-apple-blue/50 hover:bg-apple-tertiaryBg transition-all flex items-center gap-2">
+        <i data-lucide="terminal" class="w-3.5 h-3.5 text-apple-cyan"></i>
+        <span>macOS Terminal CLI</span>
       </a>
     </div>
 
-    <!-- Quick Meta Metrics -->
-    <div class="mt-16 pt-8 border-t border-white/5 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-white/5">
-        <div class="text-xs font-mono text-slate-400 mb-1">Focus Area</div>
-        <div class="text-sm font-semibold text-white">Autonomous Agents & MLX</div>
+    <!-- Apple HIG Spec Stat Pods -->
+    <div class="mt-16 pt-8 border-t border-apple-separator grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-left">
+      <div class="p-3.5 rounded-2xl apple-glass">
+        <div class="text-[11px] font-mono text-apple-tertiaryLabel uppercase tracking-wider mb-1">Focus Domain</div>
+        <div class="text-xs font-semibold text-white">Autonomous Agents & MLX</div>
       </div>
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-white/5">
-        <div class="text-xs font-mono text-slate-400 mb-1">Architecture</div>
-        <div class="text-sm font-semibold text-white">Local-First & Edge AI</div>
+      <div class="p-3.5 rounded-2xl apple-glass">
+        <div class="text-[11px] font-mono text-apple-tertiaryLabel uppercase tracking-wider mb-1">Architecture</div>
+        <div class="text-xs font-semibold text-white">Local-First Apple Silicon</div>
       </div>
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-white/5">
-        <div class="text-xs font-mono text-slate-400 mb-1">Public Repos</div>
-        <div id="stat-repos" class="text-sm font-semibold text-brand-teal font-mono">40+</div>
+      <div class="p-3.5 rounded-2xl apple-glass">
+        <div class="text-[11px] font-mono text-apple-tertiaryLabel uppercase tracking-wider mb-1">Public Repos</div>
+        <div id="stat-repos" class="text-xs font-semibold text-apple-cyan font-mono">40+</div>
       </div>
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-white/5">
-        <div class="text-xs font-mono text-slate-400 mb-1">Ecosystem</div>
-        <div class="text-sm font-semibold text-white">Apple Silicon / TS / Py</div>
+      <div class="p-3.5 rounded-2xl apple-glass">
+        <div class="text-[11px] font-mono text-apple-tertiaryLabel uppercase tracking-wider mb-1">Toolkit</div>
+        <div class="text-xs font-semibold text-white">MLX / TS / Py / PyTorch</div>
       </div>
     </div>
   </header>
 
   <!-- Bento Grid Project Showcase -->
-  <section id="projects" class="py-20 px-6 max-w-5xl mx-auto">
-    <div class="flex items-center justify-between mb-12">
+  <section id="projects" class="py-20 px-6 max-w-4xl mx-auto">
+    <div class="flex items-center justify-between mb-10">
       <div>
-        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-teal mb-2">Portfolio Showcase</h2>
-        <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Featured Engineering Work</h3>
+        <h2 class="text-xs font-mono uppercase tracking-widest text-apple-blue mb-1">Human Interface Portfolio</h2>
+        <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Flagship Systems</h3>
       </div>
-      <a href="https://github.com/dikshant363?tab=repositories" target="_blank" rel="noreferrer" class="hidden sm:flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white transition-colors">
-        <span>View all 40+ repositories</span>
+      <a href="https://github.com/dikshant363?tab=repositories" target="_blank" rel="noreferrer" class="hidden sm:flex items-center gap-1.5 text-xs font-mono text-apple-secondaryLabel hover:text-white transition-colors">
+        <span>Browse all 40+ repos</span>
         <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
       </a>
     </div>
 
     <!-- Bento Grid Container -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-      <!-- Card 1: anime-dub-studio (Large Highlight Card) -->
-      <div class="md:col-span-2 rounded-2xl bg-slate-900/70 border border-brand-teal/30 p-7 hover:border-brand-teal transition-all glow-teal flex flex-col justify-between group">
+      <!-- Card 1: anime-dub-studio (Spotlight Bento Card) -->
+      <div class="md:col-span-2 rounded-2xl apple-glass p-7 hover:border-apple-blue/60 transition-all flex flex-col justify-between group shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
         <div>
           <div class="flex items-center justify-between mb-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-brand-teal/10 text-brand-teal border border-brand-teal/30">
-              <i data-lucide="sparkles" class="w-3 h-3"></i> Apple Silicon MLX Workstation
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono bg-apple-blueMuted text-apple-blue border border-apple-blue/30">
+              <i data-lucide="apple" class="w-3 h-3"></i> Apple Silicon MLX Workstation
             </span>
-            <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
-              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-apple-secondaryLabel group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
-          <h4 class="text-2xl font-bold text-white mb-3 group-hover:text-brand-teal transition-colors">anime-dub-studio</h4>
-          <p class="text-slate-300 text-sm leading-relaxed mb-6">
-            Native macOS desktop workstation for local-first anime dubbing into Hindi & Hinglish. Harnesses Apple Silicon unified memory with MLX Whisper and Apple Intelligence for zero-cloud latency, privacy-preserved audio pipelines, and synchronous sub-title alignment.
+          <h4 class="text-2xl font-bold text-white mb-2 group-hover:text-apple-cyan transition-colors">anime-dub-studio</h4>
+          <p class="text-apple-secondaryLabel text-sm leading-relaxed mb-6">
+            Native macOS desktop workstation for local-first anime dubbing into Hindi & Hinglish. Leverages Apple Silicon unified memory with MLX Whisper and Apple Intelligence for zero-cloud latency, zero audio-leakage privacy, and synchronous multi-track dialogue alignment.
           </p>
         </div>
-        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/10">
-          <div class="flex flex-wrap gap-2 text-xs font-mono">
-            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Python</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Apple MLX</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Whisper</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">macOS Native</span>
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-apple-separator">
+          <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+            <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-apple-secondaryLabel border border-apple-borderSubtle">Python</span>
+            <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-apple-cyan border border-apple-borderSubtle">Apple MLX</span>
+            <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-apple-secondaryLabel border border-apple-borderSubtle">Whisper</span>
+            <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-apple-secondaryLabel border border-apple-borderSubtle">macOS Native</span>
           </div>
-          <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-xs font-mono text-brand-teal font-medium hover:underline inline-flex items-center gap-1">
+          <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-xs font-mono text-apple-blue font-medium hover:underline inline-flex items-center gap-1">
             <span>Inspect Source</span> &rarr;
           </a>
         </div>
       </div>
 
       <!-- Card 2: attest (Autonomous Engineering Runtime) -->
-      <div class="rounded-2xl bg-slate-900/60 border border-white/10 p-7 hover:border-indigo-400/50 transition-all flex flex-col justify-between group">
+      <div class="rounded-2xl apple-glass p-6 hover:border-apple-indigo/60 transition-all flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-apple-indigoMuted text-apple-indigo border border-apple-indigo/30">
               <i data-lucide="shield-check" class="w-3 h-3"></i> Agentic Runtime
             </span>
-            <a href="https://github.com/dikshant363/attest" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
-              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            <a href="https://github.com/dikshant363/attest" target="_blank" class="text-apple-secondaryLabel group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
-          <h4 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">attest</h4>
-          <p class="text-slate-300 text-xs leading-relaxed mb-6">
+          <h4 class="text-lg font-bold text-white mb-2 group-hover:text-apple-indigo transition-colors">attest</h4>
+          <p class="text-apple-secondaryLabel text-xs leading-relaxed mb-6">
             An autonomous engineering runtime that will not say "done" without verifiable proof: persistent world state, checkpointed execution, enforced rollback, and evidence-backed verdicts.
           </p>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs font-mono pt-4 border-t border-white/5">
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">TypeScript</span>
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">DevTools</span>
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Deterministic AI</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono pt-3 border-t border-apple-separator">
+          <span class="px-2 py-0.5 rounded bg-apple-gray6 text-apple-secondaryLabel border border-apple-borderSubtle">TypeScript</span>
+          <span class="px-2 py-0.5 rounded bg-apple-gray6 text-apple-indigo border border-apple-borderSubtle">Deterministic AI</span>
         </div>
       </div>
 
       <!-- Card 3: Grandpa's Table -->
-      <div class="rounded-2xl bg-slate-900/60 border border-white/10 p-7 hover:border-amber-400/50 transition-all flex flex-col justify-between group">
+      <div class="rounded-2xl apple-glass p-6 hover:border-apple-orange/60 transition-all flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-apple-orangeMuted text-apple-orange border border-apple-orange/30">
               <i data-lucide="mic" class="w-3 h-3"></i> Voice AI Archive
             </span>
-            <a href="https://github.com/dikshant363/Grandpa-s-Table" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
-              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            <a href="https://github.com/dikshant363/Grandpa-s-Table" target="_blank" class="text-apple-secondaryLabel group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
-          <h4 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Grandpa's Table</h4>
-          <p class="text-slate-300 text-xs leading-relaxed mb-6">
+          <h4 class="text-lg font-bold text-white mb-2 group-hover:text-apple-orange transition-colors">Grandpa's Table</h4>
+          <p class="text-apple-secondaryLabel text-xs leading-relaxed mb-6">
             Voice-to-Heirloom recipe archive and conversational memory vault preserving family culinary heritage through natural spoken dialogue and AI structuring.
           </p>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs font-mono pt-4 border-t border-white/5">
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">TypeScript</span>
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Next.js</span>
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Voice AI</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono pt-3 border-t border-apple-separator">
+          <span class="px-2 py-0.5 rounded bg-apple-gray6 text-apple-secondaryLabel border border-apple-borderSubtle">TypeScript</span>
+          <span class="px-2 py-0.5 rounded bg-apple-gray6 text-apple-orange border border-apple-borderSubtle">Next.js</span>
         </div>
       </div>
 
       <!-- Card 4: projectmentor-ai (Hackathon Project) -->
-      <div class="rounded-2xl bg-slate-900/60 border border-white/10 p-7 hover:border-emerald-400/50 transition-all flex flex-col justify-between group">
+      <div class="rounded-2xl apple-glass p-6 hover:border-apple-green/60 transition-all flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-apple-greenMuted text-apple-green border border-apple-green/30">
               <i data-lucide="award" class="w-3 h-3"></i> Hackathon Project
             </span>
-            <a href="https://github.com/dikshant363/projectmentor-ai" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
-              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            <a href="https://github.com/dikshant363/projectmentor-ai" target="_blank" class="text-apple-secondaryLabel group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
-          <h4 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">projectmentor-ai</h4>
-          <p class="text-slate-300 text-xs leading-relaxed mb-6">
+          <h4 class="text-lg font-bold text-white mb-2 group-hover:text-apple-green transition-colors">projectmentor-ai</h4>
+          <p class="text-apple-secondaryLabel text-xs leading-relaxed mb-6">
             AI Project Idea Generator & Engineering Mentor for Final-Year Students. Built and showcased for PromptWars x Parul University Hackathon.
           </p>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs font-mono pt-4 border-t border-white/5">
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Next.js</span>
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Gemini API</span>
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Tailwind</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono pt-3 border-t border-apple-separator">
+          <span class="px-2 py-0.5 rounded bg-apple-gray6 text-apple-secondaryLabel border border-apple-borderSubtle">Gemini API</span>
+          <span class="px-2 py-0.5 rounded bg-apple-gray6 text-apple-green border border-apple-borderSubtle">Tailwind</span>
         </div>
       </div>
 
       <!-- Card 5: video-dub (Autonomous Pipeline) -->
-      <div class="rounded-2xl bg-slate-900/60 border border-white/10 p-7 hover:border-purple-400/50 transition-all flex flex-col justify-between group">
+      <div class="rounded-2xl apple-glass p-6 hover:border-apple-purple/60 transition-all flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-apple-purpleMuted text-apple-purple border border-apple-purple/30">
               <i data-lucide="video" class="w-3 h-3"></i> Multimodal AI
             </span>
-            <a href="https://github.com/dikshant363/video-dub" target="_blank" class="text-slate-400 group-hover:text-white transition-colors">
-              <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            <a href="https://github.com/dikshant363/video-dub" target="_blank" class="text-apple-secondaryLabel group-hover:text-white transition-colors">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
-          <h4 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">video-dub</h4>
-          <p class="text-slate-300 text-xs leading-relaxed mb-6">
-            End-to-end autonomous video dubbing pipeline: automated transcription, cross-lingual translation, zero-shot voice cloning, and wav2lip synchronization.
+          <h4 class="text-lg font-bold text-white mb-2 group-hover:text-apple-purple transition-colors">video-dub</h4>
+          <p class="text-apple-secondaryLabel text-xs leading-relaxed mb-6">
+            Autonomous end-to-end video dubbing pipeline: automated transcription, cross-lingual translation, zero-shot voice cloning, and wav2lip synchronization.
           </p>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs font-mono pt-4 border-t border-white/5">
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Python</span>
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">PyTorch</span>
-          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">FFmpeg</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono pt-3 border-t border-apple-separator">
+          <span class="px-2 py-0.5 rounded bg-apple-gray6 text-apple-secondaryLabel border border-apple-borderSubtle">Python</span>
+          <span class="px-2 py-0.5 rounded bg-apple-gray6 text-apple-purple border border-apple-borderSubtle">PyTorch</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Interactive Terminal Section -->
-  <section id="terminal" class="py-16 px-6 max-w-5xl mx-auto">
+  <!-- macOS Terminal CLI Section -->
+  <section id="terminal" class="py-16 px-6 max-w-4xl mx-auto">
     <div class="text-center mb-8">
-      <h2 class="text-xs font-mono uppercase tracking-widest text-brand-teal mb-2">Developer Experience</h2>
-      <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Interactive CLI Shell</h3>
-      <p class="text-slate-400 text-sm mt-2">Type commands below or click quick shortcuts.</p>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-apple-cyan mb-1">Developer Interface</h2>
+      <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">macOS Terminal Session</h3>
+      <p class="text-apple-secondaryLabel text-xs mt-1.5 font-mono">Run commands below or click preset shortcuts.</p>
     </div>
 
-    <!-- Terminal Window -->
-    <div class="rounded-2xl bg-[#0B0F19] border border-white/10 shadow-2xl overflow-hidden max-w-3xl mx-auto">
-      <!-- Terminal Title Bar -->
-      <div class="bg-slate-900/80 px-4 py-3 border-b border-white/5 flex items-center justify-between">
+    <!-- macOS Terminal Window -->
+    <div class="rounded-2xl bg-[#0C0C0E] border border-apple-borderSubtle shadow-2xl overflow-hidden max-w-3xl mx-auto">
+      <!-- Apple macOS Window Bar -->
+      <div class="bg-[#18181A] px-4 py-3 border-b border-apple-separator flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-          <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-          <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+          <!-- macOS Window Controls (Exact HIG Specs) -->
+          <span class="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E] inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123] inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29] inline-block"></span>
         </div>
-        <span class="text-xs font-mono text-slate-400">dikshant@macbook-pro:~</span>
-        <div class="text-xs font-mono text-slate-500">zsh</div>
+        <span class="text-xs font-mono text-apple-secondaryLabel font-medium">dikshant@macbook-pro:~</span>
+        <div class="text-xs font-mono text-apple-tertiaryLabel">zsh</div>
       </div>
 
       <!-- Quick Command Buttons -->
-      <div class="bg-slate-950/40 px-4 py-2 border-b border-white/5 flex flex-wrap gap-2 text-xs font-mono">
-        <span class="text-slate-500 py-0.5">Presets:</span>
-        <button onclick="runCommand('whoami')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:text-brand-teal transition-colors">whoami</button>
-        <button onclick="runCommand('projects')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:text-brand-teal transition-colors">projects</button>
-        <button onclick="runCommand('skills')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:text-brand-teal transition-colors">skills</button>
-        <button onclick="runCommand('contact')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:text-brand-teal transition-colors">contact</button>
-        <button onclick="runCommand('clear')" class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 hover:text-rose-400 transition-colors">clear</button>
+      <div class="bg-[#121214] px-4 py-2 border-b border-apple-separator flex flex-wrap gap-2 text-xs font-mono">
+        <span class="text-apple-tertiaryLabel py-0.5">Presets:</span>
+        <button onclick="runCommand('whoami')" class="px-2.5 py-0.5 rounded-md bg-apple-gray6 text-apple-secondaryLabel hover:text-apple-cyan hover:bg-apple-gray5 transition-colors">whoami</button>
+        <button onclick="runCommand('projects')" class="px-2.5 py-0.5 rounded-md bg-apple-gray6 text-apple-secondaryLabel hover:text-apple-cyan hover:bg-apple-gray5 transition-colors">projects</button>
+        <button onclick="runCommand('skills')" class="px-2.5 py-0.5 rounded-md bg-apple-gray6 text-apple-secondaryLabel hover:text-apple-cyan hover:bg-apple-gray5 transition-colors">skills</button>
+        <button onclick="runCommand('contact')" class="px-2.5 py-0.5 rounded-md bg-apple-gray6 text-apple-secondaryLabel hover:text-apple-cyan hover:bg-apple-gray5 transition-colors">contact</button>
+        <button onclick="runCommand('clear')" class="px-2.5 py-0.5 rounded-md bg-apple-gray6 text-apple-tertiaryLabel hover:text-apple-red hover:bg-apple-gray5 transition-colors">clear</button>
       </div>
 
       <!-- Terminal Output Body -->
-      <div id="terminal-body" class="p-5 font-mono text-xs sm:text-sm text-slate-300 h-72 overflow-y-auto terminal-scroll space-y-2">
-        <div class="text-slate-400">Welcome to Dikshant's workstation terminal. Type <span class="text-brand-teal">help</span> to list commands.</div>
+      <div id="terminal-body" class="p-5 font-mono text-xs sm:text-sm text-apple-label h-64 overflow-y-auto terminal-scroll space-y-2">
+        <div class="text-apple-secondaryLabel">Apple Silicon ZSH session active. Type <span class="text-apple-cyan">help</span> to list commands.</div>
       </div>
 
       <!-- Terminal Input Line -->
-      <div class="bg-slate-950 px-4 py-3 border-t border-white/5 flex items-center gap-2 font-mono text-xs sm:text-sm">
-        <span class="text-brand-teal">dikshant@macbook %</span>
-        <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" class="flex-1 bg-transparent text-white focus:outline-none" placeholder="type a command..." onkeydown="handleTerminalKey(event)" />
+      <div class="bg-[#101012] px-4 py-3 border-t border-apple-separator flex items-center gap-2 font-mono text-xs sm:text-sm">
+        <span class="text-apple-blue font-semibold">dikshant@macbook %</span>
+        <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" class="flex-1 bg-transparent text-white focus:outline-none" placeholder="enter command..." onkeydown="handleTerminalKey(event)" />
       </div>
     </div>
   </section>
 
   <!-- Technical Ecosystem Section -->
-  <section id="skills" class="py-16 px-6 max-w-5xl mx-auto">
-    <div class="mb-12 text-center">
-      <h2 class="text-xs font-mono uppercase tracking-widest text-brand-teal mb-2">Technical Toolkit</h2>
-      <h3 class="text-3xl font-bold text-white tracking-tight">Languages, Frameworks & Systems</h3>
+  <section id="skills" class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="mb-10 text-center">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-apple-indigo mb-1">Architecture & Stack</h2>
+      <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Technical Ecosystem</h3>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Group 1: AI, ML & Speech -->
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/5">
-        <div class="flex items-center gap-2 text-brand-teal font-mono text-sm font-semibold mb-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Group 1: AI & ML Workloads -->
+      <div class="p-5 rounded-2xl apple-glass">
+        <div class="flex items-center gap-2 text-apple-cyan font-mono text-xs font-semibold mb-3">
           <i data-lucide="cpu" class="w-4 h-4"></i>
-          <span>AI, Machine Learning & Local Workloads</span>
+          <span>Apple Silicon MLX & Speech AI</span>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs font-mono">
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Apple Silicon MLX</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">OpenAI Whisper</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Google Gemini API</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">PyTorch</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Voice Cloning</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Agent Runtimes</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Apple MLX</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">OpenAI Whisper</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Google Gemini API</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">PyTorch</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Voice Cloning</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Agent Runtimes</span>
         </div>
       </div>
 
-      <!-- Group 2: Languages -->
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/5">
-        <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm font-semibold mb-4">
+      <!-- Group 2: Core Languages -->
+      <div class="p-5 rounded-2xl apple-glass">
+        <div class="flex items-center gap-2 text-apple-indigo font-mono text-xs font-semibold mb-3">
           <i data-lucide="code" class="w-4 h-4"></i>
-          <span>Core Languages</span>
+          <span>Languages</span>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs font-mono">
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">TypeScript</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Python</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">JavaScript</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Java</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Kotlin</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Bash / Shell</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">TypeScript</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Python</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">JavaScript</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Java</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Kotlin</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Shell / ZSH</span>
         </div>
       </div>
 
-      <!-- Group 3: Web & Full-Stack -->
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/5">
-        <div class="flex items-center gap-2 text-cyan-400 font-mono text-sm font-semibold mb-4">
+      <!-- Group 3: Full-Stack Systems -->
+      <div class="p-5 rounded-2xl apple-glass">
+        <div class="flex items-center gap-2 text-apple-blue font-mono text-xs font-semibold mb-3">
           <i data-lucide="layers" class="w-4 h-4"></i>
-          <span>Full-Stack & Web Systems</span>
+          <span>Full-Stack & Systems</span>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs font-mono">
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Next.js</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">React</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Node.js</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">FastAPI</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Tailwind CSS</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Next.js</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">React</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Node.js</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">FastAPI</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Tailwind CSS</span>
         </div>
       </div>
 
-      <!-- Group 4: Data & Infrastructure -->
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/5">
-        <div class="flex items-center gap-2 text-emerald-400 font-mono text-sm font-semibold mb-4">
+      <!-- Group 4: Infrastructure & Cloud -->
+      <div class="p-5 rounded-2xl apple-glass">
+        <div class="flex items-center gap-2 text-apple-green font-mono text-xs font-semibold mb-3">
           <i data-lucide="database" class="w-4 h-4"></i>
           <span>Data, Cloud & Tooling</span>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs font-mono">
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">PostgreSQL</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">MongoDB</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Docker</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Git & GitHub Actions</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 text-white border border-white/5">Linux / macOS</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">PostgreSQL</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">MongoDB</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Docker</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">Git & Workflows</span>
+          <span class="px-2.5 py-1 rounded-md bg-apple-gray6 text-white border border-apple-borderSubtle">macOS / Linux</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Real-Time Metrics & Activity Section -->
-  <section id="metrics" class="py-16 px-6 max-w-5xl mx-auto border-t border-white/5">
+  <!-- Real-Time Metrics Section -->
+  <section id="metrics" class="py-16 px-6 max-w-4xl mx-auto border-t border-apple-separator">
     <div class="text-center mb-10">
-      <h2 class="text-xs font-mono uppercase tracking-widest text-brand-teal mb-2">Live Telemetry</h2>
-      <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">GitHub Momentum</h3>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-apple-blue mb-1">Telemetry</h2>
+      <h3 class="text-2xl font-bold text-white tracking-tight">GitHub Momentum & Activity</h3>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="p-6 rounded-2xl bg-slate-900/50 border border-white/5 flex flex-col items-center justify-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-5 rounded-2xl apple-glass flex flex-col items-center justify-center">
         <img src="https://github-readme-stats.vercel.app/api?username=dikshant363&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="Dikshant's GitHub Stats" class="max-w-full rounded-xl" />
       </div>
-      <div class="p-6 rounded-2xl bg-slate-900/50 border border-white/5 flex flex-col items-center justify-center">
+      <div class="p-5 rounded-2xl apple-glass flex flex-col items-center justify-center">
         <img src="https://github-readme-streak-stats.herokuapp.com/?user=dikshant363&theme=tokyonight&hide_border=true" alt="Streak Stats" class="max-w-full rounded-xl" />
       </div>
     </div>
   </section>
 
-  <!-- Contact & Footer -->
-  <footer class="pt-20 pb-16 px-6 max-w-5xl mx-auto border-t border-white/10 text-center">
-    <h3 class="text-3xl font-bold text-white mb-4">Let's build something remarkable.</h3>
-    <p class="text-slate-400 text-sm max-w-lg mx-auto mb-8">
+  <!-- Contact & Conversion Footer -->
+  <footer class="pt-20 pb-16 px-6 max-w-4xl mx-auto border-t border-apple-separator text-center">
+    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3">Let's build something remarkable.</h3>
+    <p class="text-apple-secondaryLabel text-sm max-w-md mx-auto mb-8">
       Open for collaborations on agentic systems, Apple Silicon ML engineering, and intelligent developer platforms.
     </p>
 
-    <div class="inline-flex flex-wrap items-center justify-center gap-4 mb-12">
-      <button onclick="copyEmail()" class="px-5 py-2.5 rounded-xl bg-brand-teal text-black font-semibold text-sm hover:opacity-90 transition-all flex items-center gap-2">
+    <div class="inline-flex flex-wrap items-center justify-center gap-3 mb-12">
+      <button onclick="copyEmail()" class="px-5 py-2.5 rounded-xl bg-apple-blue text-white font-semibold text-xs tracking-tight hover:bg-apple-blue/90 shadow-[0_4px_16px_rgba(10,132,255,0.35)] transition-all flex items-center gap-2">
         <i data-lucide="copy" class="w-4 h-4"></i>
         <span>Copy Email to Clipboard</span>
       </button>
-      <a href="https://github.com/dikshant363" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-sm hover:border-brand-teal transition-all flex items-center gap-2">
+      <a href="https://github.com/dikshant363" target="_blank" class="px-5 py-2.5 rounded-xl bg-apple-secondaryBg border border-apple-borderSubtle text-white text-xs hover:border-apple-blue transition-all flex items-center gap-2">
         <i data-lucide="github" class="w-4 h-4"></i>
         <span>github.com/dikshant363</span>
       </a>
     </div>
 
-    <div class="text-xs font-mono text-slate-500">
-      &copy; <span id="current-year"></span> Dikshant Agarwal • Hosted on <a href="https://crumblecourt.me" class="text-slate-400 hover:text-brand-teal">crumblecourt.me</a>
+    <div class="text-xs font-mono text-apple-tertiaryLabel">
+      &copy; <span id="current-year"></span> Dikshant Agarwal • Hosted on <a href="https://crumblecourt.me" class="text-apple-secondaryLabel hover:text-apple-blue transition-colors">crumblecourt.me</a>
     </div>
   </footer>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 px-4 py-2.5 rounded-xl bg-slate-900 border border-brand-teal/50 text-white font-mono text-xs shadow-2xl flex items-center gap-2 transition-all opacity-0 pointer-events-none translate-y-2 z-50">
-    <i data-lucide="check" class="w-4 h-4 text-brand-teal"></i>
+  <!-- Apple HIG Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 px-4 py-2.5 rounded-xl apple-glass text-white font-mono text-xs shadow-2xl flex items-center gap-2 transition-all opacity-0 pointer-events-none translate-y-2 z-50 border border-apple-cyan/50">
+    <i data-lucide="check" class="w-4 h-4 text-apple-cyan"></i>
     <span id="toast-message">Email copied to clipboard!</span>
   </div>
 
-  <!-- Client JavaScript -->
+  <!-- Client Script -->
   <script>
-    // Initialize Lucide Icons
+    // Initialize Icons
     lucide.createIcons();
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
@@ -485,7 +533,7 @@
       }, 3000);
     }
 
-    // Hydrate GitHub Live Stats
+    // Hydrate Live GitHub Repos
     async function hydrateGitHubStats() {
       try {
         const res = await fetch('https://api.github.com/users/dikshant363');
@@ -495,9 +543,7 @@
             document.getElementById('stat-repos').textContent = data.public_repos + '+';
           }
         }
-      } catch (e) {
-        // Fallback already in place
-      }
+      } catch (e) {}
     }
     hydrateGitHubStats();
 
@@ -506,11 +552,11 @@
     const terminalInput = document.getElementById('terminal-input');
 
     const commands = {
-      help: () => `Available commands:\n  <span class="text-brand-teal">whoami</span>    - About Dikshant Agarwal\n  <span class="text-brand-teal">projects</span>  - Top flagship open-source repositories\n  <span class="text-brand-teal">skills</span>    - Technical stack & capabilities\n  <span class="text-brand-teal">contact</span>   - Email and social connections\n  <span class="text-brand-teal">clear</span>     - Clear terminal buffer`,
-      whoami: () => `Dikshant Agarwal\nRole: AI & Systems Engineer\nFocus: Local-First MLX on Apple Silicon, Autonomous Runtimes, Full-Stack DevTools\nPhilosophy: Learn by building, experimenting, and shipping real software.\nLocation: India • Global`,
-      projects: () => `Flagship Repositories:\n  1. <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-brand-teal underline">anime-dub-studio</a> - macOS Apple Silicon MLX Whisper Dubbing Workstation\n  2. <a href="https://github.com/dikshant363/attest" target="_blank" class="text-brand-teal underline">attest</a>           - Autonomous engineering runtime with checkpointed verdicts\n  3. <a href="https://github.com/dikshant363/Grandpa-s-Table" target="_blank" class="text-brand-teal underline">Grandpa-s-Table</a>  - Voice-to-Heirloom Recipe Archive\n  4. <a href="https://github.com/dikshant363/projectmentor-ai" target="_blank" class="text-brand-teal underline">projectmentor-ai</a> - AI Hackathon Final-Year Project Mentor\n  5. <a href="https://github.com/dikshant363/video-dub" target="_blank" class="text-brand-teal underline">video-dub</a>        - Autonomous AI Video Dubbing Platform`,
-      skills: () => `Toolkit:\n  AI & ML     : Apple Silicon MLX, Whisper, PyTorch, Gemini API, Voice AI\n  Languages   : TypeScript, Python, JavaScript, Java, Kotlin\n  Web & Back  : Next.js, React, Node.js, FastAPI, Tailwind CSS\n  Cloud & Ops : Docker, PostgreSQL, MongoDB, Git, Linux, Vercel`,
-      contact: () => `Connect with Dikshant:\n  GitHub  : <a href="https://github.com/dikshant363" target="_blank" class="text-brand-teal underline">github.com/dikshant363</a>\n  Domain  : <a href="https://crumblecourt.me" target="_blank" class="text-brand-teal underline">crumblecourt.me</a>\n  Email   : 71075012+dikshant363@users.noreply.github.com`,
+      help: () => `Available commands:\n  <span class="text-apple-cyan">whoami</span>    - About Dikshant Agarwal\n  <span class="text-apple-cyan">projects</span>  - Flagship open-source systems\n  <span class="text-apple-cyan">skills</span>    - Technical stack & capabilities\n  <span class="text-apple-cyan">contact</span>   - Email and social connections\n  <span class="text-apple-cyan">clear</span>     - Clear terminal buffer`,
+      whoami: () => `Dikshant Agarwal\nRole: AI & Systems Engineer\nFocus: Local-First Apple Silicon MLX, Autonomous Runtimes, Full-Stack DevTools\nPhilosophy: Learn by building, experimenting, and shipping real software.\nLocation: India • Global`,
+      projects: () => `Flagship Repositories:\n  1. <a href="https://github.com/dikshant363/anime-dub-studio" target="_blank" class="text-apple-cyan underline">anime-dub-studio</a> - macOS Apple Silicon MLX Whisper Dubbing Workstation\n  2. <a href="https://github.com/dikshant363/attest" target="_blank" class="text-apple-cyan underline">attest</a>           - Autonomous engineering runtime with checkpointed verdicts\n  3. <a href="https://github.com/dikshant363/Grandpa-s-Table" target="_blank" class="text-apple-cyan underline">Grandpa-s-Table</a>  - Voice-to-Heirloom Recipe Archive\n  4. <a href="https://github.com/dikshant363/projectmentor-ai" target="_blank" class="text-apple-cyan underline">projectmentor-ai</a> - AI Hackathon Final-Year Project Mentor\n  5. <a href="https://github.com/dikshant363/video-dub" target="_blank" class="text-apple-cyan underline">video-dub</a>        - Autonomous AI Video Dubbing Platform`,
+      skills: () => `Technical Ecosystem:\n  AI & ML     : Apple Silicon MLX, Whisper, PyTorch, Gemini API, Voice AI\n  Languages   : TypeScript, Python, JavaScript, Java, Kotlin\n  Web & Back  : Next.js, React, Node.js, FastAPI, Tailwind CSS\n  Cloud & Ops : Docker, PostgreSQL, MongoDB, Git, macOS, Linux`,
+      contact: () => `Connect:\n  GitHub  : <a href="https://github.com/dikshant363" target="_blank" class="text-apple-cyan underline">github.com/dikshant363</a>\n  Domain  : <a href="https://crumblecourt.me" target="_blank" class="text-apple-cyan underline">crumblecourt.me</a>\n  Email   : 71075012+dikshant363@users.noreply.github.com`,
       clear: () => {
         terminalBody.innerHTML = '';
         return null;
@@ -520,20 +566,20 @@
     function runCommand(cmdText) {
       const cleanCmd = cmdText.trim().toLowerCase();
       const line = document.createElement('div');
-      line.innerHTML = `<span class="text-brand-teal">dikshant@macbook %</span> ${cmdText}`;
+      line.innerHTML = `<span class="text-apple-blue font-semibold">dikshant@macbook %</span> ${cmdText}`;
       terminalBody.appendChild(line);
 
       if (commands[cleanCmd]) {
         const output = commands[cleanCmd]();
         if (output !== null) {
           const resDiv = document.createElement('div');
-          resDiv.className = 'text-slate-300 whitespace-pre-wrap pl-2 border-l border-brand-teal/30 my-1';
+          resDiv.className = 'text-apple-label whitespace-pre-wrap pl-2 border-l border-apple-cyan/30 my-1';
           resDiv.innerHTML = output;
           terminalBody.appendChild(resDiv);
         }
       } else {
         const errorDiv = document.createElement('div');
-        errorDiv.className = 'text-rose-400 pl-2';
+        errorDiv.className = 'text-apple-red pl-2';
         errorDiv.textContent = `zsh: command not found: ${cmdText}. Type 'help' for available commands.`;
         terminalBody.appendChild(errorDiv);
       }
